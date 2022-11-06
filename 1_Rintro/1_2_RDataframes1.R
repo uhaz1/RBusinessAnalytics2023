@@ -18,12 +18,6 @@
 #list of available built-in data frames
 data()
 
-mtcars
-class(mtcars)
-
-women
-class(women)
-
 
 ## create a data frame form column vectors: data.frame() ##
 #create vectors
