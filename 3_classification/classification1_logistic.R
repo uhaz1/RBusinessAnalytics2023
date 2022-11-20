@@ -156,7 +156,7 @@ corrplot(cor.data,method='color')
 #######################
 
 ###   - Split data into Train and Test Groups
-# install.packages("caTools")
+#install.packages("caTools")
 
 # Import package
 library(caTools)
@@ -167,7 +167,7 @@ dim(df) # row and column count
 
 #split up the sample. a boolean vector split is generated
 # SplitRatio = percent of sample==TRUE
-split <- sample.split(df$xdefault, SplitRatio = 0.70) # SplitRatio = percent of sample==TRUE
+split <- sample.split(df$default, SplitRatio = 0.70) # SplitRatio = percent of sample==TRUE
 
 # Training Data
 train = subset(df, split == TRUE)
@@ -186,7 +186,7 @@ test = subset(df, split == FALSE)
 # family=binomial in order to tell R to run a logistic regression rather than some other type of generalized linear model.
 
 # how is dummy variable created for default
-contrasts(df$default)  # Yes=1, No=0 ; model will be trained for probability of market going up
+contrasts(df$default)  # Yes=1, No=0 ; model will be trained for probability of default
 
 help(glm)
 ## Train the model for default = Yes
@@ -209,7 +209,7 @@ coef(glm.fits)
 ## FEATURE SELECTION
 # If there are lot of features or input variables, 
 # it is desirable to use a subset of variables. 
-# one way to choose the best subset is using stepwise regresiosn using 
+# one way to choose the best subset is using stepwise regression using 
 #     the step() function.
 
 help(step)
@@ -263,7 +263,7 @@ mean(glm.pred!=test$default)
 ###################################################
 
 #install.packages('dplyr')
-#library(dplyr)
+library(dplyr)
 
 ## SORT CLASS IMBALANCE IN PREDICTOR
 # defaulters - 333
@@ -353,3 +353,4 @@ table(glm.pred,test$default)
 
 # precision tp/(tp+fp) - of the ones predicted Yes (Defaulter), how many are actually Yes (defaulter)
 45/(45+15)  ## 75%
+

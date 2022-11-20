@@ -171,6 +171,7 @@ tree <- rpart(default ~.,method='class',data = train)
 #summary(tree)
 
 #visualise Decision Tree
+#install.packages('rpart.plot')
 library(rpart.plot)
 prp(tree)
 
